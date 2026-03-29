@@ -8,13 +8,13 @@ class ConferenceTest extends TestCase
 {
     private $pdoMock;
     private $conference;
-
+// Setup метод
     protected function setUp(): void
     {
         $this->pdoMock = $this->createMock(PDO::class);
         $this->conference = new Conference($this->pdoMock);
     }
-
+// Unit-тест 1
     public function testAdd()
     {
         $stmtMock = $this->createMock(PDOStatement::class);
@@ -26,7 +26,7 @@ class ConferenceTest extends TestCase
 
         $this->assertTrue(true);
     }
-
+// Unit-тест 2
     public function testGetAll()
     {
         $stmtMock = $this->createMock(PDOStatement::class);
@@ -41,7 +41,7 @@ class ConferenceTest extends TestCase
         $this->assertIsArray($result);
         $this->assertEquals('Ivan', $result[0]['name']);
     }
-
+// Mock-тест
     public function testAddWithMock()
     {
         $stmtMock = $this->createMock(PDOStatement::class);
